@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app ="doodleApp">
   <head>
     <meta charset="utf-8">
+    <script src="vendors/angular/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
     <title></title>
   </head>
-  <body>
+  <body ng-controller = "loginController as in">
 
     <p>
       <label for="username">Username</label>
-      <input type="text" name="username" value="">
+      <input type="text" name="username" value="fff" ng-model ="in.message">
     </p>
 
   <p>
     <label for="pass">Password</label>
-    <input type="password" name="pass" value="">
+    <input type="password" name="pass" ng-model ="in.PassN">
   </p>
 
   <p>
     <a href="/register">Register</a>
+
+    {{in.message}}
   </p>
   </body>
 </html>
