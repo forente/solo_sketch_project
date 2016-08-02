@@ -1,21 +1,30 @@
 {
-  "name": "solo_sketch_project",
+  "name": "solo_dood_project",
   "version": "1.0.0",
-  "description": "A web app used to doodle",
+  "description": "a web sketch thing ",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "angular": "^1.5.8",
+    "express": "^4.14.0",
+    "bootstrap": "^3.3.7",
+    "express-session": "^1.14.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forente/solo_sketch_project.git"
+  },
   "author": "Richard Camara",
   "license": "ISC",
-  "dependencies": {
-    "angular": "^1.5.8",
-    "body-parser": "^1.15.2",
-    "bootstrap": "^3.3.7",
-    "express": "^4.14.0",
-    "express-session": "^1.14.0",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
-  }
+  "bugs": {
+    "url": "https://github.com/forente/solo_sketch_project/issues"
+  },
+  "homepage": "https://github.com/forente/solo_sketch_project#readme"
 }
