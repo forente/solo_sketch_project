@@ -10,9 +10,23 @@ router.get('/', function(req, res) {
 router.post('/createData', function(req, res){
   console.log('Adding new user!');
   var data = req.body;
-
+console.log(data);
   var createdUser = new User({
     //TODO: get data from register page and create new user
+    username:data.username,
+    email:data.email,
+    password:data.password
+
+  });
+
+  createdUser.save(function(err){
+    if(err){
+      console.log('Save Error: ',err);
+      res.sendStatus(500);
+    }
+    else {
+      res.sendStatus(200);
+    }
   });
 });
 

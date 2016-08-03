@@ -6,23 +6,24 @@
     <script src="scripts/client.js"></script>
     <title></title>
   </head>
-  <body>
+  <body ng-controller="registerController as regCo">
     <p>
       <label for="email">Email</label>
-      <input type="email" name="email" value="" required>
+      <input type="email" name="email" ng-model ="regCo.email" >
     </p>
 
     <p>
       <label for="username">Username</label>
-      <input type="text" name="username" value="">
+      <input type="text" name="username" ng-model ="regCo.username">
     </p>
 
     <p>
       <label for="pass">Password</label>
-      <input type="password" name="pass" value="">
+      <input type="password" name="pass" ng-model ="regCo.password">
     </p>
 
-    {{5+3}}
+
+    <button ng-click='regCo.logInput()'>Register</button>
 
   </body>
 </html>
