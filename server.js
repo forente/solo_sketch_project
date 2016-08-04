@@ -8,6 +8,8 @@ var localStrategy = require('passport-local');
 
 var login = require('./routes/login');
 var register = require('./routes/register');
+
+var test = require('./routes/test');
 var User = require('./models/user');
 
 var app =  express();
@@ -73,6 +75,7 @@ app.get('/', function(req, res){
 });
 app.use('/login',login);
 app.use('/register',register);
+app.use('/test',test);
 
 var db = mongoose.connect('mongodb://localhost/doodleUsers').connection;
 

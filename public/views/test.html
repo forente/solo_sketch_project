@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+  </head>
+  <body>
+    <canvas id="ddd" height="300" ></canvas>
+
+    <div id="color">
+    </div>
+
+
+  </body>
+  <script type="text/javascript">
+    var can = document.getElementById("ddd");
+    console.log(can);
+    var ctx = can.getContext("2d");
+
+    var img = new Image();
+    img.src = '../image/13YellowEye.jpg';
+
+    img.onload = function(){
+      ctx.drawImage(img, 0,0);
+      img.style.display = 'none';
+    };
+
+    // ctx.font="20px Georgia";
+    // ctx.strokeText("Hello World!",10,50);
+
+    // ctx.shadowBlur=20;
+    // ctx.shadowColor="black";
+    // ctx.fillStyle="red";
+    // ctx.fillRect(0,0,200,200);
+
+    console.log(ctx.getImageData(0,0,can.width,can.height));
+
+    var color = document.getElementById('color');
+    function pick(event){
+      var x = event.layerX;
+      var y = event.layerY;
+
+      var pixel = ctx.getImageData(x, y, 1,1);
+      var data = pixel.data;
+      var rgba = 'rgba(' + data[0] + ',' + data[1] +',' + data[2] + ',' + data[3] + ')';
+
+      color.style.background =  rgba;
+      color.textContent = rgba;
+      console.log(rgba);
+    }
+    can.addEventListener('click',pick);
+
+  </script>
+</html>
