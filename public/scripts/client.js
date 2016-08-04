@@ -3,6 +3,14 @@ angular.module('doodleApp',[]);
 angular.module('doodleApp').controller('loginController', function($http){
   var vm = this;
 
+  vm.logInput = function(){
+
+    var loginPackage = {};
+    loginPackage.username = vm.username;
+    loginPackage.password = vm.password;
+
+    console.log(loginPackage);
+  };
 
 
 });

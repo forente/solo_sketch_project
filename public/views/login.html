@@ -10,18 +10,18 @@
 
     <p>
       <label for="username">Username</label>
-      <input type="text" name="username" value="fff" ng-model ="in.mess">
+      <input type="text" name="username" value="fff" ng-model ="in.username">
     </p>
 
   <p>
     <label for="pass">Password</label>
-    <input type="password" name="pass" ng-model ="in.PassN">
+    <input type="password" name="pass" ng-model ="in.password">
   </p>
 
   <p>
     <a href="/register">Register</a>
 
-    {{in.message}}
+    <button ng-click="in.logInput()">Log in!</button>
   </p>
   </body>
 </html>
