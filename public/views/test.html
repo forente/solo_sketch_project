@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css" charset="utf-8">
 
 
   </head>
   <body>
-    <canvas id="ddd" height="300" ></canvas>
+    <canvas id="ddd" height="500" width="900"></canvas>
 
     <div id="color">
     </div>
 
 
-  </body>
+  </body style=" background-color: blue;">
   <script type="text/javascript">
     var can = document.getElementById("ddd");
     console.log(can);
@@ -27,13 +28,30 @@
       img.style.display = 'none';
     };
 
-    // ctx.font="20px Georgia";
-    // ctx.strokeText("Hello World!",10,50);
+    var brush = ctx.createImageData(150,150);
 
-    // ctx.shadowBlur=20;
-    // ctx.shadowColor="black";
-    // ctx.fillStyle="red";
-    // ctx.fillRect(0,0,200,200);
+      function randomNum(a,b){
+        return Math.floor((Math.random() * a) +b);
+      }
+
+
+
+    var paint = function(event){
+
+      for (var i = 0; i < brush.data.length; i+=4) {
+        brush.data[i] = randomNum(155,100);
+        brush.data[i+1] = randomNum(55, 200);
+        brush.data[i+2] = randomNum(105, 150);
+        brush.data[i+3] = i%255;
+      }
+
+      var x = event.offsetX - 75;
+      var y = event.offsetY -75;
+      ctx.putImageData(brush,x,y);
+    }
+
+    console.log(brush);
+
 
     console.log(ctx.getImageData(0,0,can.width,can.height));
 
@@ -50,7 +68,64 @@
       color.textContent = rgba;
       console.log(rgba);
     }
-    can.addEventListener('click',pick);
+    // beginning of the line draw
+    var isDrawing = false;
+
+    var lastX;
+    var lartY;
+    var currentX;
+    var currnetY;
+
+    var startDraw = function (event){
+      if(event.offsetY!= undefined ){
+        lastX = event.offsetX;
+        lastY = event.offsetY;
+      }
+      ctx.beginPath();
+      isDrawing = true;
+    };
+
+    var drawLine = function (event){
+      if (isDrawing){
+        if(event.offsetY!= undefined ){
+          currentX = event.offsetX;
+          currentY = event.offsetY;
+        }
+        draw(lastX, lastY, currentX, currentY );
+
+        lastX = currentX;
+        lastY = currentY;
+
+      }
+    };
+
+
+    function draw (lX, lY, cX, cY){
+      ctx.moveTo(lX, lY);
+      ctx.lineTo(cX, cY);
+
+      ctx.strokeStyle ="#0000ff" ;
+      ctx.stroke();
+
+    }
+
+    var stopDraw = function(){
+      isDrawing = false;
+    };
+
+
+
+
+
+
+    //console.log(can.toDataURL());
+    //can.addEventListener('click',pick);
+    //can.addEventListener("mousemove",paint);
+
+    can.addEventListener('mousedown',startDraw);
+    can.addEventListener('mousemove', drawLine);
+    can.addEventListener('mouseup', stopDraw);
+    can.addEventListener('mouseout',stopDraw)
 
   </script>
 </html>

@@ -2,26 +2,36 @@
 <html ng-app ="doodleApp">
   <head>
     <meta charset="utf-8">
+      <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css" charset="utf-8">
     <script src="vendors/angular/angular.min.js"></script>
     <script src="scripts/client.js"></script>
     <title></title>
   </head>
   <body ng-controller = "loginController as in">
 
-    <p>
-      <label for="username">Username</label>
-      <input type="text" name="username" value="fff" ng-model ="in.username">
-    </p>
 
-  <p>
-    <label for="pass">Password</label>
-    <input type="password" name="pass" ng-model ="in.password">
-  </p>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="username" class="col-sm-6 control-label">Username</label>
+    <input type="text" name="username" value="fff" placeholder="username" ng-model ="in.username">
+  </div>
 
-  <p>
-    <a href="/register">Register</a>
+<div class="form-group">
+  <label for="pass" class="col-sm-6 control-label">Password</label>
+  <input type="password" name="pass" placeholder="password"ng-model ="in.password">
+</div>
 
-    <button ng-click="in.logInput()">Log in!</button>
-  </p>
+<div class="form-group">
+  <div class="col-sm-offset-6 col-sm-10">
+    <a href="/register" >Register</a>
+    <button class="btn" ng-click="in.logInput()">Sign in!</button>
+  </div>
+
+</div>
+</form>
+
+
+
+
   </body>
 </html>
