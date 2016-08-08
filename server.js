@@ -10,6 +10,7 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 
 var test = require('./routes/test');
+var mainPage = require('./routes/mainPage');
 var User = require('./models/user');
 
 var app =  express();
@@ -28,15 +29,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use('local', new localStrategy({ passReqTOCallback: true, usernameField:'username'},
-  function (req, username, password, done){
-
-    User.findone({ username:username }, function(err, user){
+passport.use('local', new localStrategy({usernameField:'username', passwordField: 'password'},
+  function (username, password, done){
+    console.log(done);
+    User.findOne({ username:username }, function(err, user){
       if(err){
         console.log('Error in findOne server:', err);
       }
       if(!user){
-        return done(null, false, {message:'Incorrect username or Password'});
+        return done(null, false);
       }
 
       user.comparePassword(password, function(err, isMatch){
@@ -47,7 +48,7 @@ passport.use('local', new localStrategy({ passReqTOCallback: true, usernameField
             return done(null, user);
           }
           else {
-            done(null, false, {message:'Incorrect username or Password'});
+            done(null, false);
           }
       });
     });
@@ -58,9 +59,10 @@ passport.serializeUser(function(user, done){
   done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done){
+passport.deserializeUser(function(id, done){
   User.findById(id, function(err, user){
     if(err){
+      console.log(id);
       return done(err);
     }
     done(null, user);
@@ -75,6 +77,7 @@ app.get('/', function(req, res){
 });
 app.use('/login',login);
 app.use('/register',register);
+app.use('/main', mainPage);
 app.use('/test',test);
 
 var db = mongoose.connect('mongodb://localhost/doodleUsers').connection;

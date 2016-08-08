@@ -1,6 +1,6 @@
 angular.module('doodleApp',[]);
 
-angular.module('doodleApp').controller('loginController', function($http){
+angular.module('doodleApp').controller('loginController', function($http, $location){
   var vm = this;
 
   vm.logInput = function(){
@@ -10,6 +10,17 @@ angular.module('doodleApp').controller('loginController', function($http){
     loginPackage.password = vm.password;
 
     console.log(loginPackage);
+
+    $http.post('/login/',loginPackage).then(successHandler, failureHandler);
+
+    function successHandler(res){
+      console.log(res);
+
+    }
+
+    function failureHandler(res){
+      console.log('Posting Issue');
+    }
   };
 
 

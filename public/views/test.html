@@ -10,7 +10,7 @@
   <body>
     <canvas id="ddd" height="500" width="900"></canvas>
 
-    <input class="jscolor" onchange="updateColor(this.jscolor)" value=""></button>
+    <input class="jscolor" onchange="updateColor(this.jscolor)" value="" readonly></button>
     <div id="color">
     </div>
 
@@ -106,6 +106,9 @@
 
       }
     };
+
+     ctx.lineWidth = 1;
+     ctx.globalAlpha =1;
 
 
     function draw (lX, lY, cX, cY){
