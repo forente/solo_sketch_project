@@ -1,5 +1,5 @@
 
-  var can = document.getElementById("ddd");
+  var can = document.getElementById("pad");
   console.log(can);
   var ctx = can.getContext("2d");
 
@@ -64,7 +64,7 @@
 
   function updateColor (jscolor){
     brushColor = '#' + jscolor;
-    console.log(jscolor);
+    //console.log(jscolor);
   }
   var startDraw = function (event){
     if(event.offsetY!= undefined ){
@@ -111,7 +111,7 @@
 
 
 
-  console.log(can.toDataURL());
+  //console.log(can.toDataURL());
   //can.addEventListener('click',pick);
   //can.addEventListener("mousemove",paint);
 
