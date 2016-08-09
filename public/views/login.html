@@ -9,26 +9,28 @@
   </head>
   <body ng-controller = "loginController as in">
 
+<div class="container">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="username" class="col-sm-6 control-label">Username</label>
+      <input type="text" name="username" value="fff" placeholder="username" ng-model ="in.username">
+    </div>
 
-<form class="form-horizontal">
   <div class="form-group">
-    <label for="username" class="col-sm-6 control-label">Username</label>
-    <input type="text" name="username" value="fff" placeholder="username" ng-model ="in.username">
+    <label for="pass" class="col-sm-6 control-label">Password</label>
+    <input type="password" name="pass" placeholder="password"ng-model ="in.password">
   </div>
 
-<div class="form-group">
-  <label for="pass" class="col-sm-6 control-label">Password</label>
-  <input type="password" name="pass" placeholder="password"ng-model ="in.password">
-</div>
+  <div class="form-group">
+    <div class="col-sm-offset-6 col-sm-10">
+      <a href="/register" >Register</a>
+      <button class="btn btn-primary " ng-click="in.logInput()">Sign in!</button>
+    </div>
 
-<div class="form-group">
-  <div class="col-sm-offset-6 col-sm-10">
-    <a href="/register" >Register</a>
-    <button class="btn btn-primary " ng-click="in.logInput()">Sign in!</button>
   </div>
-
+  </form>
 </div>
-</form>
+
 
 
 

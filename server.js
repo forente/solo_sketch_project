@@ -11,6 +11,7 @@ var register = require('./routes/register');
 
 var test = require('./routes/test');
 var mainPage = require('./routes/mainPage');
+var saveImage = require('./routes/saveImage');
 var User = require('./models/user');
 
 var app =  express();
@@ -79,6 +80,7 @@ app.use('/login',login);
 app.use('/register',register);
 app.use('/main', mainPage);
 app.use('/test',test);
+app.use('/save',saveImage);
 
 var db = mongoose.connect('mongodb://localhost/doodleUsers').connection;
 
