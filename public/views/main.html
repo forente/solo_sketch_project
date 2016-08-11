@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="/style/main.css" media="screen" title="no title" charset="utf-8">
     <script src="vendors/angular/angular.min.js"></script>
+    <script src="vendors/angular-route/angular-route.min.js"></script>
      <script src="/vendors/jscolor-2.0.4/jscolor.js"></script>
     <script src="scripts/client.js"></script>
 
 
     </script>
     <title>Doodleer</title>
+    <base href="/">
   </head>
   <body ng-controller = "padController as pad">
     <nav class="navbar navbar-default">
@@ -19,14 +21,9 @@
       </div>
     </nav>
 
-    <canvas id="pad" height="600" width="1100" style=" box-shadow: 2px 2px 2px #888888;"></canvas>
+    <div ng-view>
 
-    <input class="jscolor" onchange="updateColor(this.jscolor)" value="" readonly></button>
-    <div id="color">
-
-      <input ng-model="pad.imageName" type="text" name="name" value="">
-      <input ng-click="pad.grabImageName()" type="button" name="name" value="Save image">
-
+    </div>
 
 
 

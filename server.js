@@ -17,7 +17,7 @@ var User = require('./models/user');
 var app =  express();
 
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({extended:true, limit:'50mb'}));
+app.use(bodyParser.urlencoded({extended:true, limit:'50m'}));
 
 app.use(session({
   secret:'gosHawk',
@@ -42,16 +42,21 @@ passport.use('local', new localStrategy({usernameField:'username', passwordField
       }
 
       user.comparePassword(password, function(err, isMatch){
+          console.log('HIT CALL BACK');
           if(err){
             console.log('Error in compare passwords: ',err);
           }
           if (isMatch){
+            console.log('Everything worked! On to next done');
             return done(null, user);
-          }
-          else {
+          } else {
+            console.log('compared passwords');
             done(null, false);
+
           }
+          console.log(isMatch);
       });
+      console.log('Right Here');
     });
   })
 );

@@ -6,15 +6,24 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/views/login.html'));
 });
 
-router.get('/', function(req, res, next){
-  res.send(req.isAuthenticated())
+// router.get('/', function(req, res, next){
+//   res.send(req.isAuthenticated())
+// });
+
+router.get('/success', function(req, res){
+  res.sendStatus(200);
 });
+
+router.get('/failure', function(req, res){
+  res.sendStatus(401);
+})
 
 router.post('/', passport.authenticate('local', {
 
-    successRedirect:'/views/main.html',
-    failureRedirect:'/views/login.html'
+    successRedirect:'/login/success',
+    failureRedirect:'/login/failure'
   })
+
 );
 
 module.exports = router;

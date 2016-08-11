@@ -7,7 +7,8 @@ var userSchema = new Schema({
 
   username: {type:String, required:true, index: {unique:true}},
   email: {type:String, required:true},
-  password: {type:String, required:true}
+  password: {type:String, required:true},
+  imageLoc:{type:[String]}
 });
 
 userSchema.pre('save', function(next){
@@ -32,11 +33,14 @@ userSchema.pre('save', function(next){
 });
 
 userSchema.methods.comparePassword = function(candidatePassword, cb){
+  console.log('hit compare');
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
     if(err){
+      console.log(err);
       return cb(err);
     }
     else {
+      console.log('no error!', isMatch);
       cb(null, isMatch);
     }
 
