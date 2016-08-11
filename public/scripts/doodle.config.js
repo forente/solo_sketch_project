@@ -1,6 +1,6 @@
-angular.module('doodleApp').config(['$routeProvider', '$locationProvider'], function($routeProvider, $locationProvider){
+angular.module('doodleApp').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
-  .when('login',{
+  .when('/',{
     templateUrl:'/views/login.html',
     controller:'loginController',
     controllerAs:'in'
@@ -10,11 +10,11 @@ angular.module('doodleApp').config(['$routeProvider', '$locationProvider'], func
     controller:'registerController',
     controllerAs:'regCo'
   })
-  .when('main'{
-    templateUrl:'/views/main.html',
+  .when('/home',{
+    templateUrl:'/views/doodleView.html',
     controller:'padController',
     controllerAs:'pad'
   })
 
   $locationProvider.html5Mode(true);
-});
+}]);

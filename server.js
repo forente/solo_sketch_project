@@ -79,7 +79,7 @@ passport.deserializeUser(function(id, done){
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, 'public/views/index.html'));
+  res.sendFile(path.join(__dirname, 'public/views/main.html'));
 });
 app.use('/login',login);
 app.use('/register',register);

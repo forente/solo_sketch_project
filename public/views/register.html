@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html ng-app="doodleApp">
-  <head>
-    <meta charset="utf-8">
-      <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css" charset="utf-8">
-    <script src="vendors/angular/angular.min.js"></script>
-    <script src="scripts/client.js"></script>
-    <title></title>
-  </head>
-  <body ng-controller="registerController as regCo">
-    <p>
-      <label for="email">Email</label>
-      <input type="email" name="email" ng-model ="regCo.email" >
-    </p>
+<p>
+  <label for="email">Email</label>
+  <input type="email" name="email" ng-model ="regCo.email" >
+</p>
 
-    <p>
-      <label for="username">Username</label>
-      <input type="text" name="username" ng-model ="regCo.username">
-    </p>
+<p>
+  <label for="username">Username</label>
+  <input type="text" name="username" ng-model ="regCo.username">
+</p>
 
-    <p>
-      <label for="pass">Password</label>
-      <input type="password" name="pass" ng-model ="regCo.password">
-    </p>
+<p>
+  <label for="pass">Password</label>
+  <input type="password" name="pass" ng-model ="regCo.password">
+</p>
 
 
-    <button ng-click='regCo.logInput()'>Register</button>
-
-  </body>
-</html>
+<button ng-click='regCo.logInput()'>Register</button>

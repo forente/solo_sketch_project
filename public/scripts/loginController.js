@@ -15,7 +15,7 @@ angular.module('doodleApp').controller('loginController', function($http, $locat
       //Right now - res is html sent back from login.js
       console.log(res);
 
-      //$location.path('/home');
+      $location.path('/home');
 
     }
 
