@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="/style/main.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="vendors/angular/angular.min.js"></script>
     <script src="vendors/angular-route/angular-route.min.js"></script>
+
+
+    <link rel="stylesheet" href="vendors/angular-bootstrap-colorpicker/css/colorpicker.css">
+    <script src="vendors/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
 
     <script src="scripts/doodle.module.js"></script>
     <script src="scripts/doodle.config.js"></script>
@@ -24,11 +29,21 @@
     <base href="/">
   </head>
   <body >
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
 
-      </div>
-    </nav>
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">SHawk Sketches</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
 
     <div ng-view>
 

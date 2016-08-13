@@ -1,6 +1,6 @@
 angular.module('doodleApp').controller('padController',function($http, $scope, nameKeeper){
   var vm = this;
-  console.log('loaded');
+
   vm.grabImageName = function(){
     var photo =  angular.element(document.querySelector("#pad"));
 
@@ -28,7 +28,7 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
 
   };
 
-  function sketch(){
+
     // setting up canvas
     var can = document.getElementById("pad");
     console.log(can);
@@ -55,11 +55,18 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
     var currentX;
     var currnetY;
     var brushColor = "#000000";
+    var lineThickness = 3;
 
-    function updateColor (jscolor){
-      brushColor = '#' + jscolor;
-      //console.log(jscolor);
+
+
+    vm.updateColor = function(){
+      brushColor = vm.color;
+      //console.log(vm.color);
+    };
+    vm.widthChange = function(){
+      lineThickness = vm.lineTk;
     }
+
     var startDraw = function (event){
       if(event.offsetY!= undefined ){
         lastX = event.offsetX;
@@ -83,15 +90,15 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
       }
     };
 
-    //ctx.lineWidth = 3;
-     ctx.globalAlpha =1;
+
 
 
     function draw (lX, lY, cX, cY){
       ctx.moveTo(lX, lY);
       ctx.lineTo(cX, cY);
-
       ctx.strokeStyle = brushColor;
+      ctx.lineWidth = lineThickness;
+      ctx.globalAlpha =1;
       ctx.stroke();
 
     }
@@ -109,10 +116,10 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
     can.addEventListener('mouseup', stopDraw);
     can.addEventListener('mouseout',stopDraw)
 
-  }
 
 
 
-  sketch();
+
+
 
 });

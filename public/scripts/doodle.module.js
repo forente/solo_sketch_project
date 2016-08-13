@@ -1,1 +1,1 @@
-angular.module('doodleApp',['ngRoute']);
+angular.module('doodleApp',['ngRoute', 'colorpicker.module']);
