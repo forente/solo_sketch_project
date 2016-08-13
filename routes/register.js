@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var path = require('path');
+var fs = require('fs');
 
 var User =  require('../models/user');
 
@@ -9,8 +10,11 @@ router.get('/', function(req, res) {
 
 router.post('/createData', function(req, res){
   console.log('Adding new user!');
+
   var data = req.body;
-console.log(data);
+  makeUserDir(data.username);
+//console.log(data);
+
   var createdUser = new User({
     //TODO: get data from register page and create new user
     username:data.username,
@@ -25,9 +29,20 @@ console.log(data);
       res.sendStatus(500);
     }
     else {
+
       res.sendStatus(200);
     }
   });
 });
+// makes a directory to store a users pictures 
+ var makeUserDir = function(username){
+   fs.mkdir('./userImages/'+username, function(err){
+     if (err) {
+       console.log(err);
+     }
+   });
+ };
+
+
 
 module.exports = router;

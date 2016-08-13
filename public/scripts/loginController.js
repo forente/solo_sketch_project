@@ -1,4 +1,4 @@
-angular.module('doodleApp').controller('loginController', function($http, $location){
+angular.module('doodleApp').controller('loginController', function($http, $location, nameKeeper){
   var vm = this;
 
   vm.logInput = function(){
@@ -6,6 +6,8 @@ angular.module('doodleApp').controller('loginController', function($http, $locat
     var loginPackage = {};
     loginPackage.username = vm.username;
     loginPackage.password = vm.password;
+    nameKeeper.setName(vm.username);
+    console.log(nameKeeper.getName());
 
     console.log(loginPackage);
 

@@ -42,12 +42,12 @@ passport.use('local', new localStrategy({usernameField:'username', passwordField
       }
 
       user.comparePassword(password, function(err, isMatch){
-          console.log('HIT CALL BACK');
+        //  console.log('HIT CALL BACK');
           if(err){
             console.log('Error in compare passwords: ',err);
           }
           if (isMatch){
-            console.log('Everything worked! On to next done');
+            //console.log('Everything worked! On to next done');
             return done(null, user);
           } else {
             console.log('compared passwords');
@@ -56,7 +56,7 @@ passport.use('local', new localStrategy({usernameField:'username', passwordField
           }
           console.log(isMatch);
       });
-      console.log('Right Here');
+      //console.log('Right Here');
     });
   })
 );

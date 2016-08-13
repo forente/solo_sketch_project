@@ -1,4 +1,4 @@
-angular.module('doodleApp').controller('padController',function($http){
+angular.module('doodleApp').controller('padController',function($http, $scope, nameKeeper){
   var vm = this;
   console.log('loaded');
   vm.grabImageName = function(){
@@ -7,7 +7,9 @@ angular.module('doodleApp').controller('padController',function($http){
     var photoPackage = {};
     photoPackage.imageName = vm.imageName;
     photoPackage.photo = photo[0].toDataURL();
+    photoPackage.username = nameKeeper.getName();
     console.log(photoPackage);
+
 
     $http.post('/save',photoPackage).then(successHandler, failureHandler);
 
@@ -19,10 +21,15 @@ angular.module('doodleApp').controller('padController',function($http){
       console.log('Posting Issue');
     }
 
+    console.log(photo[0]);
+    //vm.ctxf.lineWidth = 33;
+  //  console.log(vm.ctxf.lineWidth);
+
+
   };
 
   function sketch(){
-
+    // setting up canvas
     var can = document.getElementById("pad");
     console.log(can);
     var ctx = can.getContext("2d");
@@ -37,7 +44,7 @@ angular.module('doodleApp').controller('padController',function($http){
 
 
     var color = document.getElementById('color');
-    
+
     // beginning of the line draw
 
 
@@ -76,7 +83,7 @@ angular.module('doodleApp').controller('padController',function($http){
       }
     };
 
-     ctx.lineWidth = 1;
+    //ctx.lineWidth = 3;
      ctx.globalAlpha =1;
 
 
@@ -92,11 +99,6 @@ angular.module('doodleApp').controller('padController',function($http){
     var stopDraw = function(){
       isDrawing = false;
     };
-
-
-
-
-
 
     //console.log(can.toDataURL());
     //can.addEventListener('click',pick);
