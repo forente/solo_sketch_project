@@ -3,8 +3,8 @@
   console.log(can);
   var ctx = can.getContext("2d");
 
-  var img = new Image();
-  img.src = '../image/13YellowEye.jpg';
+//  var img = new Image();
+//  img.src = '../image/13YellowEye.jpg';
 
   img.onload = function(){
     ctx.drawImage(img, 0,0);

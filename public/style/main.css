@@ -1,3 +1,31 @@
 body{
-  background-color: BurlyWood  ;
+  background-color: #C4A8E8;
+  margin-left: 8px;
+}
+nav {
+  background-color: #F1A9D0;
+  color: #671140;
+}
+
+nav a{
+  color: #C33382;
+}
+
+
+
+#pad{
+  box-shadow: 2px 2px 2px #888888;
+  box-shadow: -2px -2px 2px #888888;
+  box-shadow: inset 0 0 2px 0px rgba(0,0,0,0.75);
+}
+
+.form-signin{
+  max-width: 330px;
+  padding:15px;
+  margin:0 auto;
+}
+
+.form-control{
+  box-sizing: border-box;
+  display: block;
 }

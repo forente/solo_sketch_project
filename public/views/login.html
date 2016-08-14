@@ -1,19 +1,23 @@
 <div class="container">
-  <form class="form-horizontal">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Welcome</h2>
     <div class="form-group">
-      <label for="username" class="col-sm-6 control-label">Username</label>
-      <input type="text" name="username" value="fff" placeholder="username" ng-model ="in.username">
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" class="form-control"name="username" value="fff" placeholder="username" ng-model ="in.username">
     </div>
 
   <div class="form-group">
-    <label for="pass" class="col-sm-6 control-label">Password</label>
-    <input type="password" name="pass" placeholder="password"ng-model ="in.password">
+    <label for="pass" class="sr-only">Password</label>
+    <input type="password" class="form-control" name="pass" placeholder="password"ng-model ="in.password">
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-6 col-sm-10">
-      <a href="/register" >Register</a>
-      <button class="btn btn-primary " ng-click="in.logInput()">Sign in!</button>
+    <div class="">
+
+      <button class="btn btn-primary btn-block btn-lg " ng-click="in.logInput()">Sign in!</button>
+      <p>
+        <a href="/register" >Register</a>
+      </p>
     </div>
 
   </div>

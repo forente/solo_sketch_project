@@ -35,7 +35,7 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
     var ctx = can.getContext("2d");
 
     var img = new Image();
-    img.src = '../image/13YellowEye.jpg';
+    //img.src = '../image/13YellowEye.jpg';
 
     img.onload = function(){
       ctx.drawImage(img, 0,0);
@@ -59,13 +59,18 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
 
 
 
+
     vm.updateColor = function(){
       brushColor = vm.color;
       //console.log(vm.color);
     };
     vm.widthChange = function(){
       lineThickness = vm.lineTk;
-    }
+    };
+
+    vm.alphaChange = function(){
+      ctx.globalAlpha = vm.g_alpha;
+    };
 
     var startDraw = function (event){
       if(event.offsetY!= undefined ){
@@ -98,7 +103,7 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
       ctx.lineTo(cX, cY);
       ctx.strokeStyle = brushColor;
       ctx.lineWidth = lineThickness;
-      ctx.globalAlpha =1;
+
       ctx.stroke();
 
     }
