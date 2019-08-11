@@ -15,6 +15,11 @@ angular.module('doodleApp').config(['$routeProvider', '$locationProvider', funct
     controller:'padController',
     controllerAs:'pad'
   })
+  .when('/manage',{
+    templateUrl:'/views/photoManager.html',
+    controller:'managerController',
+    controllerAs:'mgr'
+  })
 
   $locationProvider.html5Mode(true);
 }]);

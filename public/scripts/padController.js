@@ -42,6 +42,11 @@ angular.module('doodleApp').controller('padController',function($http, $scope, n
       img.style.display = 'none';
     };
 
+    ctx.beginPath();
+    ctx.rect(0, 0, can.width, can.height);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
 
     var color = document.getElementById('color');
 

@@ -1,17 +1,23 @@
 body{
   background-color: #C4A8E8;
-  margin-left: 8px;
 }
 nav {
   background-color: #F1A9D0;
   color: #671140;
 }
+/*main{
+  margin:8px;
+}*/
+
 
 nav a{
   color: #C33382;
 }
 
-
+.imageDisplay{
+  display:inline-block;
+  margin:16px;
+}
 
 #pad{
   box-shadow: 2px 2px 2px #888888;
@@ -28,4 +34,9 @@ nav a{
 .form-control{
   box-sizing: border-box;
   display: block;
+}
+
+.btn-primary{
+  background-color: #4E1A8F;
+  border-color: #2A0659;
 }

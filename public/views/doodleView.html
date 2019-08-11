@@ -1,24 +1,28 @@
 <div class="row">
   <div class="col-md-9">
-    <canvas id="pad" class="" height="550" width="850" style=" "></canvas>
+    <canvas id="pad" class="" height="550" width="900" style=" "></canvas>
 
     <div>
     </div>
   </div>
 
 <div class="col-md-2">
-  <input ng-model="pad.imageName" type="text" name="name" >
-  <input ng-click="pad.grabImageName()" type="button" name="name" value="Save image">
+  <label for="na" > Image Name</label>
+  <input ng-model="pad.imageName" type="text" name="na" >
+  <input ng-click="pad.grabImageName()" type="button" name="name" placeholder="Image Name"value="Save image">
 
 <div >
-  {{pad.lineTk}}
+  Line Thickenss:{{pad.lineTk}}
   <input type="range" min="1" max="10" size="3" width="100" ng-model="pad.lineTk" ng-change="pad.widthChange()">
 </div>
-
+  colorpicker
   <input colorpicker ng-model="pad.color" ng-change="pad.updateColor()"type="text" >
+
+  <div >
+    Opacity:
+    <input type="number" name="alpha" ng-model="pad.g_alpha" step="0.05" ng-change="pad.alphaChange()">
+  </div>
 </div>
-<div >
-  <input type="number" name="alpha" ng-model="pad.g_alpha" step="0.05" ng-change="pad.alphaChange()">
-</div>
+
 
 </div>

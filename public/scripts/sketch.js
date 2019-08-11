@@ -9,7 +9,12 @@
   img.onload = function(){
     ctx.drawImage(img, 0,0);
     img.style.display = 'none';
+
   };
+  ctx.beginPath();
+  ctx.rect(0, 0, can.width, can.height);
+  ctx.fillStyle = "red";
+  ctx.fill();
 
   var brush = ctx.createImageData(150,150);
 
